@@ -1,0 +1,74 @@
+/* FTO Program — minimal additions on top of Bootstrap 5 */
+
+.score-pill {
+  display: inline-block;
+  min-width: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: .35rem;
+  padding: .15rem .4rem;
+  font-size: .85rem;
+}
+.score-1, .score-2, .score-3 { background: #f8d7da; color: #842029; }
+.score-4                     { background: #fff3cd; color: #664d03; }
+.score-5, .score-6, .score-7 { background: #d1e7dd; color: #0f5132; }
+.score-nrt                   { background: #e2e3e5; color: #41464b; }
+
+.dor-section {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .5rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.dor-section h5 {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: .35rem;
+  margin-bottom: .75rem;
+  color: #0d6efd;
+}
+
+.rating-row {
+  border-bottom: 1px dashed #eee;
+  padding: .5rem 0;
+}
+.rating-row:last-child { border-bottom: none; }
+.rating-label { font-weight: 500; }
+
+.score-input {
+  width: 4.5rem;
+}
+
+.metric-card {
+  background: #fff;
+  border-radius: .5rem;
+  padding: 1.25rem;
+  border: 1px solid #dee2e6;
+  height: 100%;
+}
+.metric-card .metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+.metric-card .metric-label {
+  font-size: .85rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.phase-bar {
+  display: flex;
+  border-radius: .35rem;
+  overflow: hidden;
+  height: 1.5rem;
+  background: #e9ecef;
+}
+.phase-bar > div { display: flex; align-items: center; justify-content: center; color: #fff; font-size: .8rem; font-weight: 600; }
+
+@media print {
+  nav, footer, .no-print { display: none !important; }
+  .dor-section { page-break-inside: avoid; }
+  body { background: #fff; }
+}
