@@ -1,0 +1,25 @@
+# Render Blueprint — push this repo and click "New > Blueprint" in Render.
+# Defaults to SQLite on a 1GB persistent disk. Switch to Postgres by
+# adding a database service and setting DATABASE_URL on the web service.
+services:
+  - type: web
+    name: fto-app
+    runtime: python
+    plan: starter           # 'starter' is required for persistent disks
+    buildCommand: pip install -r requirements.txt
+    startCommand: python seed.py --bootstrap && gunicorn wsgi:app
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SQLITE_PATH
+        value: /var/data/fto.db
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.12.4
+    disk:
+      name: fto-data
+      mountPath: /var/data
+      sizeGB: 1
